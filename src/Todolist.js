@@ -7,7 +7,7 @@ import styled from "styled-components";
 export function validateInput(values) {
   let errors = {};
   if (values.length === 0) {
-    errors.empty = "Required";
+    errors.empty = "Text field is empty";
     errors.isValid = false;
   }
   if (Object.keys(errors).length === 0) {
@@ -22,7 +22,7 @@ class Todolist extends React.Component {
     this.state = {
       value: "",
       items: [{ text: "To do...", isChecked: false }],
-      errors: {}
+      errors: {},
     };
     this.changeHandler = this.changeHandler.bind(this);
     this.add = this.add.bind(this);
@@ -41,7 +41,7 @@ class Todolist extends React.Component {
     } else {
       const itemToAdd = [
         ...this.state.items,
-        { text: this.state.value, isChecked: false }
+        { text: this.state.value, isChecked: false },
       ];
 
       this.setState({ ...this.state, items: itemToAdd, value: "", errors: {} });

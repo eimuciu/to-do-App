@@ -5,13 +5,17 @@ import Input from "./atoms/Input";
 import ErrorMessage from "./atoms/ErrorMessage";
 
 const InputSection = ({ onAdd, value, onChange, errors }) => (
-  <Container>
-    <Div>
-      <ToDoInput type="text" value={value} onInput={onChange} />
-      <ErrorMessage>{errors.empty}</ErrorMessage>
-    </Div>
-    <AddButton onClick={onAdd} text="Add" />
-  </Container>
+  <>
+    <Container>
+      <Div>
+        <ToDoInput type="text" value={value} onInput={onChange} />
+      </Div>
+      <ButtonDiv>
+        <AddButton onClick={onAdd} text="Add" />
+      </ButtonDiv>
+    </Container>
+    <ErrorMessage>{errors.empty}</ErrorMessage>
+  </>
 );
 
 const Container = styled.div`
@@ -28,13 +32,18 @@ const Div = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-flow: row;
+  flex-flow: column;
   width: 50%;
   height: 10%;
+  padding: 5px;
   transition: flex-grow 1s ease;
   @media (max-width: 768px) {
     flex-grow: 1;
   }
+`;
+
+const ButtonDiv = styled.div`
+  padding: 5px;
 `;
 
 const AddButton = styled(Button)`

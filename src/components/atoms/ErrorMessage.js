@@ -8,21 +8,18 @@ const ErrorMessage = ({ children }) => (
 );
 
 const Container = styled.div`
-  position: relative;
-  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 5px;
 `;
 
 const Span = styled.span`
-  position: absolute;
-  width: 100px;
-  z-index: 1;
-  left: 0px;
   background-color: #e85833;
   border-radius: 5px;
   color: white;
+  width: 50%;
 `;
 
 export default ErrorMessage;
